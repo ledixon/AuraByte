@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraByte // AI Nutrition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">AURABYTE<span>.io</span></div>
+        </header>
+
+        <div class="card profile">
+            <h3>Health Profile</h3>
+            <div class="input-grid">
+                <input type="number" id="weight" placeholder="Weight (kg)">
+                <input type="number" id="height" placeholder="Height (cm)">
+                <input type="number" id="age" placeholder="Age">
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <button onclick="calculateMetrics()" class="glow-btn">Set Targets</button>
+            
+            <div id="results" class="results-grid hidden">
+                <div class="res-item"><span>BMI</span><p id="bmi-val">--</p></div>
+                <div class="res-item highlight"><span>Cut</span><p id="c-cal">0</p></div>
+                <div class="res-item highlight"><span>Maintain</span><p id="m-cal">0</p></div>
+                <div class="res-item highlight"><span>Bulk</span><p id="b-cal">0</p></div>
+            </div>
+        </div>
+
+        <div class="card scanner">
+            <h3>Aura Vision AI</h3>
+            <div class="camera-ui">
+                <input type="file" accept="image/*" capture="camera" id="food-input" onchange="scanFood()">
+                <label for="food-input" class="scan-area">
+                    <div class="scanner-line"></div>
+                    <p>TAP TO SCAN MEAL</p>
+                </label>
+            </div>
+            <div id="scan-status" class="status-msg">Ready to analyze...</div>
+        </div>
+
+        <div class="dashboard">
+            <div class="total-box">
+                <span>Daily Intake</span>
+                <h2 id="total-calories">0</h2>
+                <small>kcal</small>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
